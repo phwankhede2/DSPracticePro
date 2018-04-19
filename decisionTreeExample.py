@@ -24,3 +24,24 @@ prediction = clf.predict([[190, 70, 43]])
 # CHALLENGE compare their reusults and print the best one!
 
 print(prediction)
+
+
+from sklearn import svm
+clf = svm.SVC()
+clf.set_params(probability=True)
+clf.fit(X,Y)
+print(clf.predict([[190, 90, 46]]))
+print(clf.predict_proba([[190, 90, 46]]))  
+#clf.get_params()
+#clf.score(X,Y)
+
+
+# In[36]:
+
+
+from sklearn.linear_model import SGDClassifier
+clf_SGD = SGDClassifier(loss="log", penalty="l2")
+clf_SGD.fit(X,Y)
+#clf_SGD.set_params(probability=True)
+print(clf_SGD.predict([[190, 90, 46]]))
+print(clf_SGD.predict_proba([[190, 90, 46]]))  
